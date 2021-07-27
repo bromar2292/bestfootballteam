@@ -3,7 +3,10 @@ import 'package:football/view_models/match_view_model.dart';
 
 class SortTeams {
   void Call(
-      List<MatchViewModel> matches, List<FootBallTeamViewModel> footballTeams) {
+
+      /// function creates a new list of teams that won
+      List<MatchViewModel> matches,
+      List<FootBallTeamViewModel> footballTeams) {
     List<String> games = [];
     matches.forEach(
       (match) {
@@ -11,6 +14,7 @@ class SortTeams {
       },
     );
 
+    /// then creates a new object of how many times each team won
     var newMap = Map();
 
     games.forEach(
@@ -23,6 +27,7 @@ class SortTeams {
       },
     );
 
+    /// then transfers the information to footballteamlist which has the crest url and team data
     newMap.entries.forEach(
       (matchWinner) {
         footballTeams.forEach(
@@ -38,6 +43,7 @@ class SortTeams {
       },
     );
 
+    /// sorts the info in order
     footballTeams.sort((b, a) => a.wins.compareTo(b.wins));
   }
 }

@@ -23,7 +23,12 @@ class _MatchListState extends State<MatchList> {
   SortTeams sortTeams = SortTeams();
 
   void findWinners() {
+    /// function removes the draws, then assignes the winning team to resultsWinner
     sortMatches.Call(widget.matches);
+
+    /// function creates a new list of teams that won
+    /// then creates a new object of how many times each team won
+    /// then transfers the information to footballteamlist which has the crest url and team data
     sortTeams.Call(widget.matches, widget.footballTeams);
   }
 
@@ -35,7 +40,8 @@ class _MatchListState extends State<MatchList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 10,
+      /// can change item count to see bigger or smaller lists
+      itemCount: 5,
       itemBuilder: (context, index) {
         final match = widget.footballTeams[index];
 

@@ -6,6 +6,7 @@ import 'package:football/utils/constants.dart';
 import 'package:http/http.dart' as http;
 
 class WebService {
+  ///pulls a list of all the matches in the premier league over the last 30 days
   Future<List<Match>> fetchMatches() async {
     final response = await http.get(Uri.parse(Constants.LIST_OF_MATCHES),
         headers: {'X-Auth-Token': Constants.API_KEY});
@@ -19,6 +20,7 @@ class WebService {
     }
   }
 
+  /// this gets a list of football teams
   Future<List<FootballTeam>> fetchTeam() async {
     final response = await http.get(Uri.parse(Constants.LIST_OF_TEAMS),
         headers: {'X-Auth-Token': Constants.API_KEY});
