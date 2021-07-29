@@ -7,11 +7,6 @@ void main() {
   runApp(MyApp());
 }
 
-/// find which team won most matches is last 30 games
-/// make sure it is responsive
-/// write tests
-///  make sure there is a loader
-///  refactor
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override

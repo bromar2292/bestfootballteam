@@ -12,15 +12,15 @@ class FootBallTeamViewModel extends ChangeNotifier {
     this.footballTeam.updateWin(newWin);
   }
 
-  get name {
+  String get name {
     return this.footballTeam.name;
   }
 
-  get url {
+  String get url {
     return this.footballTeam.crestUrl;
   }
 
-  get wins {
+  int get wins {
     return this.footballTeam.wins;
   }
 }

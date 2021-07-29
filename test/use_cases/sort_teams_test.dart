@@ -18,8 +18,8 @@ void main() {
   ];
 
   List<FootballTeam> footballTeams = [
-    FootballTeam(name: 'arsnal'),
-    FootballTeam(name: 'liverpool'),
+    FootballTeam(name: 'arsnal', wins: 0, crestUrl: 'test'),
+    FootballTeam(name: 'liverpool', wins: 0, crestUrl: 'test'),
   ];
 
   List<MatchViewModel> ViewModelMatches =

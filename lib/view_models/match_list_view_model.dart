@@ -14,18 +14,23 @@ enum LoadingStatus {
 class MatchListViewModel extends ChangeNotifier {
   LoadingStatus loadingStatus = LoadingStatus.searching;
 
-  late List<MatchViewModel> footballMatches;
-  late List<FootBallTeamViewModel> footballTeams;
+  List<MatchViewModel> footballMatches = [];
+  List<FootBallTeamViewModel> footballTeams = [];
 
   MatchListViewModel() {
-    _populateMatches();
-    _populateTeam();
+    PopulateLists();
+  }
+
+  PopulateLists() async {
+    await _populateMatches();
+    await _populateTeam();
   }
 
   Future<void> _populateMatches() async {
     loadingStatus = LoadingStatus.searching;
     final List<Match> matches = await WebService().fetchMatches();
-    footballMatches = matches.map((match) => MatchViewModel(match)).toList();
+    this.footballMatches =
+        matches.map((match) => MatchViewModel(match)).toList();
 
     loadingStatus =
         footballMatches.isEmpty ? LoadingStatus.empty : LoadingStatus.completed;
@@ -35,7 +40,8 @@ class MatchListViewModel extends ChangeNotifier {
   Future<void> _populateTeam() async {
     loadingStatus = LoadingStatus.searching;
     final List<FootballTeam> teams = await WebService().fetchTeam();
-    footballTeams = teams.map((team) => FootBallTeamViewModel(team)).toList();
+    this.footballTeams =
+        teams.map((team) => FootBallTeamViewModel(team)).toList();
 
     loadingStatus =
         footballTeams.isEmpty ? LoadingStatus.empty : LoadingStatus.completed;

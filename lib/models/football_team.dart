@@ -1,14 +1,20 @@
 class FootballTeam {
-  late String? name;
-  late int? wins = 0;
-  late String? crestUrl;
+  String name;
 
-  FootballTeam({this.name, this.wins, this.crestUrl});
+  int wins;
+
+  String crestUrl;
+
+  FootballTeam({
+    required this.name,
+    this.wins = 0,
+    required this.crestUrl,
+  });
 
   factory FootballTeam.FromJSON(Map<String, dynamic> json) {
     return FootballTeam(
       name: json['name'],
-      crestUrl: json['crestUrl'],
+      crestUrl: json['crestUrl'] ?? '',
     );
   }
 

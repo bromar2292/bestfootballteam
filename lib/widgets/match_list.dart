@@ -41,7 +41,7 @@ class _MatchListState extends State<MatchList> {
   Widget build(BuildContext context) {
     return ListView.builder(
       /// can change item count to see bigger or smaller lists
-      itemCount: 5,
+      itemCount: widget.footballTeams.isEmpty ? 0 : 5,
       itemBuilder: (context, index) {
         final match = widget.footballTeams[index];
 
